@@ -1,0 +1,91 @@
+---
+layout: page_full-width
+---
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+</style>
+
+<div class="row align-items-md-stretch bg-dark text-white">
+
+
+    <div class="container-fluid bg-dark text-light rounded-bottom" style="background-image: linear-gradient(
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, 0.2)
+      ),url('assets/images/pexels-jakub-novacek-924824.jpg'); background-size: cover;">
+        <div class="container col-xxl-10 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-5">
+                <img src="assets/images/hamish_portrait.jpg" class="d-block mx-lg-auto img-fluid" alt="Hamish Weir" loading="lazy" width="700" height="500" style="border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+              </div>
+              <div class="col-lg-7">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Hamish Weir</h1>
+                <p class="lead">VQuickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Message</button>
+                  <button type="button" class="btn btn-outline-secondary btn-lg px-4">CV</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 border-bottom">Posts</h2>
+    
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            {% for post in site.posts %}
+            <div class="col">                
+                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: linear-gradient(
+                        rgba(0, 0, 0, 0.2), 
+                        rgba(0, 0, 0, 0.5)
+                      ),url('{{post.image}}'); background-size: cover;">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"><a class="text-white text-decoration-none" href={{post.url}}>{{post.title}}</a></h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="assets\images\hamish_portrait.jpg" alt="Bootstrap" class="rounded-circle border border-white" width="32" height="32">
+                        </li>
+
+                        
+                
+                            <li class="d-flex align-items-center me-3">
+                                <i class="bi bi-list-ul me-2"></i>
+                                {% for category in post.categories %}
+                                <small>{{category}}&nbsp&nbsp</small>
+                                {% endfor %}
+                            </li>
+
+                        
+
+                        <li class="d-flex align-items-center">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            <small>{{ post.date | date_to_string: "ordinal" }}</small>
+                        </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+
+        
+    Photo by Jakub Novacek from Pexels
+
+    </div>
+</div>
